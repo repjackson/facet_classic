@@ -15,6 +15,7 @@
             // a.item(href='/messages' class="{{isActivePath '/messages'}}")
             //     i.mail.icon
             if currentUser
+                .item Points: #{currentUser.points}
                 a.item(href="/cart" class="{{isActivePath '/cart'}}")
                     i.cart.icon
                     | #{currentUser.profile.cart.length}

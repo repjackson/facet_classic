@@ -6,15 +6,21 @@ with item
         .ui.hidden.divider
         .ui.divided.stackable.grid
             .ten.wide.column
-                .meta
-                    a(href=link target='_blank') #{link}
+                // .meta
+                //     a(href=link target='_blank') #{link}
                 .description
                     |!{description}
+                .ui.divider
                 +user_blurb
             .five.wide.column
-                h2.ui.header $#{price}
-                #add_to_cart.ui.green.fluid.button
-                    |Add to Cart
+                h2.ui.header Price: #{point_price} pts
+                if can_buy
+                    #buy.ui.green.fluid.button
+                        |Buy 
+                else
+                    .ui.disabled.basic.button Can't Buy
+                // #add_to_cart.ui.green.fluid.button
+                //     |Add to Cart
                 h2.ui.header Tags
                 each tags
                     .ui.basic.label #{this}

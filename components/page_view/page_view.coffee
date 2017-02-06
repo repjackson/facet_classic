@@ -18,7 +18,8 @@ if Meteor.isClient
         item: ->
             Docs.findOne FlowRouter.getParam('doc_id')
     
-    
+        can_buy: ->
+            @point_price < Meteor.user().points
     
     Template.page_view.events
         'click .edit': ->
@@ -27,4 +28,5 @@ if Meteor.isClient
 
 
         'click #add_to_cart': ->
-            Meteor.call 'add_to_cart', @_id
+            Meteor.call 'add_to_cart', @_id, ->
+                FlowRouter.go '/cart'

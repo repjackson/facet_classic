@@ -7,8 +7,9 @@ with item
             // +edit_link
             +edit_description
             +edit_tags
-            +edit_price
-            +publish_button
-            if tags
-                #save.ui.large.green.button Save
-            +delete_button
+            +edit_point_price
+            // +publish_button
+            .ui.basic.center.aligned.segment
+                if tags
+                    #save.ui.big.green.button Save
+                +delete_button
