@@ -1,0 +1,32 @@
+with item
+    .ui.container
+        .image
+            img.ui.centered.image(src="{{c.url image_id height=400 width=800 background='white' crop='lpad'}}")
+            h1.ui.center.aligned.header #{title}
+        .ui.hidden.divider
+        .ui.divided.stackable.grid
+            .ten.wide.column
+                .meta
+                    a(href=link target='_blank') #{link}
+                .description
+                    |!{description}
+                +user_blurb
+            .five.wide.column
+                h2.ui.header $#{price}
+                #add_to_cart.ui.green.fluid.button
+                    |Add to Cart
+                h2.ui.header Tags
+                each tags
+                    .ui.basic.label #{this}
+                if isInRole 'admin'
+                    h2.ui.header Status
+                    if published
+                        .ui.basic.green.label Published
+                    else
+                        .ui.basic.red.label Unpublished
+                    .extra.content
+                        .ui.divider
+                        i.large.red.configure.icon
+                        .edit.ui.primary.basic.button
+                            i.pencil.icon
+                            |Edit

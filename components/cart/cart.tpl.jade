@@ -1,0 +1,8 @@
+.ui.container
+    h1.ui.header Your Cart
+    .ui.list
+        each cart_items
+            .item 
+                .ui.header #{title}
+                each tags
+                    .ui.basic.label #{this}

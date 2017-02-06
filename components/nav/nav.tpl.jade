@@ -1,0 +1,36 @@
+.ui.inverted.stackable.menu
+    .ui.container
+        a.header.icon.item(href='/' class="{{isActivePath '/'}}")
+            i.large.home.icon
+        // a.item(href='/people_cards' class="{{isActivePath '/people_cards'}}")
+        //     i.users.icon
+        //     strong People
+        a#add.ui.item
+            i.plus.icon
+            | Add
+        .right.menu
+            // a.item(href='/admin/content' class="{{isActivePath '/admin/'}}")
+            //     i.configure.icon
+            //     | Admin
+            // a.item(href='/messages' class="{{isActivePath '/messages'}}")
+            //     i.mail.icon
+            if currentUser
+                a.item(href="/cart" class="{{isActivePath '/cart'}}")
+                    i.cart.icon
+                    | #{currentUser.profile.cart.length}
+                a.item(href="/account/profile/edit" class="{{isActivePath '/account/profile/edit'}}")
+                    if profile_doc.image_id
+                        img.ui.avatar.image(src="{{c.url currentUser.image_id width=50 height=50 gravity='face' crop='fill'}}")
+                    else
+                        i.user.icon
+                    if currentUser.name
+                        | #{currentUser.name}
+                    else
+                        | Profile
+                a#logout.ui.item(href='#') 
+                    i.sign.out.icon
+                    |Sign Out
+            else
+                a.ui.item(href='/sign-in') 
+                    i.sign.in.icon
+                    |Sign In
