@@ -12,7 +12,7 @@ if Meteor.isClient
     
     
     Template.edit.helpers
-        item: ->
+        doc: ->
             Docs.findOne FlowRouter.getParam('doc_id')
         
     
