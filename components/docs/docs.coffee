@@ -3,7 +3,8 @@
 Docs.before.insert (userId, doc)->
     doc.timestamp = Date.now()
     doc.author_id = Meteor.userId()
-    doc.type = 'service'
+    doc.group_id = Meteor.user().profile.current_group_id
+    doc.group_name = Meteor.user().profile.current_group_name
     return
 
 Docs.after.update ((userId, doc, fieldNames, modifier, options) ->
@@ -39,6 +40,18 @@ if Meteor.isClient
     
     Template.docs.events
 
+    Template.item.helpers
+        is_author: -> Meteor.userId() and @author_id is Meteor.userId()
+    
+        tag_class: -> if @valueOf() in selected_tags.array() then 'secondary' else 'basic'
+    
+        when: -> moment(@timestamp).fromNow()
+
+    Template.item.events
+        'click .tag': -> if @valueOf() in selected_tags.array() then selected_tags.remove(@valueOf()) else selected_tags.push(@valueOf())
+    
+        'click .edit': -> FlowRouter.go("/edit/#{@_id}")
+
 
 
 if Meteor.isServer
@@ -55,7 +68,6 @@ if Meteor.isServer
         self = @
         match = {}
         if selected_tags.length > 0 then match.tags = $all: selected_tags
-        match.type = 'service'
     
         Docs.find match,
             limit: 5

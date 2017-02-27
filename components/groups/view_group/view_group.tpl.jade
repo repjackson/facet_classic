@@ -1,0 +1,78 @@
+with group
+    .ui.container
+        h1.ui.center.aligned.header #{name} Group
+        .image
+            img.ui.centered.image(src="{{c.url image_id }}")
+        .ui.hidden.divider
+        .ui.divided.stackable.grid
+            .ten.wide.column
+                .meta
+                    a(href=link target='_blank') #{link}
+                .description
+                    |{{nl2br description}}
+                .ui.center.aligned.header Admins
+                .ui.items
+                    each admin_list
+                        .item
+                            .ui.tiny.image                 
+                                img(src="{{c.url profile.image_id }}")
+                            .content
+                                .header
+                                    | #{username}
+                                .meta
+                                    each tags
+                                        .ui.basic.label #{this}
+                .ui.center.aligned.header Members
+                .ui.items
+                    each member_list
+                        .item
+                            .ui.tiny.image                 
+                                img(src="{{c.url profile.image_id }}")
+                            .content
+                                .header
+                                    | #{username}
+                                .meta
+                                    each tags
+                                        .ui.basic.label #{this}
+            .five.wide.column
+                unless currentUser
+                    .ui.basic.fluid.button 
+                        .shadows Sign In and Join Group
+                if is_member
+                    if is_inside_group
+                        #go_outside_group.ui.basic.yellow.fluid.button
+                            | Go Outside #{name} Group
+                    else
+                        #go_inside_group.ui.basic.blue.fluid.button
+                            | Go Inside #{name} Group
+                .ui.hidden.divider
+                .ui.center.aligned.header Tags
+                each tags
+                    .ui.basic.label #{this}
+                if currentUser
+                    .ui.header
+                        |Your Membership
+                        if is_member
+                            .ui.basic.big.green.label In
+                        else
+                            .ui.basic.big.label Out
+                    if is_member
+                        #leave_group.ui.basic.red.fluid.button
+                            | Leave Group
+                    else
+                        #join_group.ui.basic.green.fluid.button
+                            | Join Group
+                .ui.hidden.divider
+                .ui.header 
+                    |Group Type
+                    if private
+                        .ui.basic.big.label Private
+                    else
+                        .ui.basic.big.label Public
+                .ui.hidden.divider
+                if isInRole 'admin'
+                    .extra.content
+                        .ui.header 
+                            |Admin
+                        .edit.ui.fluid.basic.button
+                            | Edit

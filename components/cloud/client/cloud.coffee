@@ -10,10 +10,10 @@ Template.cloud.helpers
 
     tag_cloud_class: ->
         button_class = switch
-            when @index <= 10 then 'big'
-            when @index <= 20 then 'large'
-            when @index <= 30 then ''
-            when @index <= 40 then 'small'
+            when @index <= 5 then 'big'
+            when @index <= 10 then 'large'
+            when @index <= 15 then ''
+            when @index <= 20 then 'small'
             when @index <= 50 then 'tiny'
         return button_class
 
@@ -32,9 +32,7 @@ Template.cloud.helpers
     
 
     selected_tags: -> 
-        # type = 'event'
-        # console.log "selected_#{type}_tags"
-        selected_tags.list()
+        selected_tags.array()
 
 
 Template.cloud.events

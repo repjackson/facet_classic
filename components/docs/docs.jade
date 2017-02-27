@@ -4,3 +4,28 @@ template(name='docs')
         .ui.divided.relaxed.items
             each docs
                 +item
+
+template(name='item')
+    .ui.item
+        .image
+            // a(href="/view/#{_id}")
+            //     img.ui.large.centered.image(src="{{c.url image_id }}")
+            img(src="{{c.url author.profile.image_id width=300 height=300 gravity='face' crop='fill'}}")
+    
+        .content
+            a(href="/view/#{_id}")
+                h1.ui.header #{title}
+            .meta
+                each tags
+                    .ui.button.tag(class=tag_class) #{this}
+            .description
+                |!{description}
+            .extra
+                div by {{author.username}} #{when}
+                div Group: #{group_name}
+                
+            if can_edit
+                .edit.ui.icon.basic.button
+                    i.pencil.icon.icon
+            else
+            // +user_card

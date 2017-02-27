@@ -2,29 +2,15 @@
     .ui.container
         a.header.item(href='/' class="{{isActivePath '/'}}") 
             h3 Facet
-        a#add.ui.item
-            i.plus.icon
-            | Add
+        a.item(href='/groups' class="{{isActivePath '/groups'}}") Groups
         .right.menu
-            // a.item(href='/admin/content' class="{{isActivePath '/admin/'}}")
-            //     i.configure.icon
-            //     | Admin
-            // a.item(href='/messages' class="{{isActivePath '/messages'}}")
-            //     i.mail.icon
+            if currentUser.profile.current_group_name
+                a#add.ui.item
+                    i.plus.icon
+                    | Add
+                .item Current Group: #{currentUser.profile.current_group_name}
             if currentUser
-                // .item Points: #{currentUser.points}
-                // a.item(href="/cart" class="{{isActivePath '/cart'}}")
-                //     i.cart.icon
-                //     | #{currentUser.profile.cart.length}
-                // a.item(href="/account/profile/edit" class="{{isActivePath '/account/profile/edit'}}")
-                //     if profile_doc.image_id
-                //         img.ui.avatar.image(src="{{c.url currentUser.image_id width=50 height=50 gravity='face' crop='fill'}}")
-                //     else
-                //         i.user.icon
-                //     if currentUser.name
-                //         | #{currentUser.name}
-                //     else
-                //         | Profile
+                .item #{currentUser.username}
                 a#logout.ui.item(href='#') 
                     i.sign.out.icon
                     |Sign Out

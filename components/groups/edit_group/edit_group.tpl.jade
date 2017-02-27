@@ -1,0 +1,23 @@
+with group
+    .ui.container.basic.segment
+        .ui.center.aligned.header Edit #{name} Group
+        .ui.form
+            .field
+                label Name
+                input#name(type='text' value=name)
+            .field
+                label Description
+                textarea#description(rows='5') #{description}
+            .field
+                label Tags
+                each tags
+                    .ui.basic.button.doc_tag
+                        i.minus.icon
+                        |#{this}
+                .ui.left.icon.four.wide.input
+                    i.add.icon
+                    input#add_tag(type='text' placeholder='Add Tag' maxlength='50')
+            if tags
+                .ui.center.aligned.basic.segment
+                    #save.ui.big.green.button 
+                        | Save #{name} Group
