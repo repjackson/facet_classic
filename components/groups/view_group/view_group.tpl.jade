@@ -5,39 +5,25 @@ with group
             img.ui.centered.image(src="{{c.url image_id }}")
         .ui.hidden.divider
         .ui.divided.stackable.grid
-            .ten.wide.column
-                .meta
-                    a(href=link target='_blank') #{link}
-                .description
-                    |{{nl2br description}}
-                .ui.center.aligned.header Admins
-                .ui.items
-                    each admin_list
-                        .item
-                            .ui.tiny.image                 
-                                img(src="{{c.url profile.image_id }}")
-                            .content
-                                .header
-                                    | #{username}
-                                .meta
-                                    each tags
-                                        .ui.basic.label #{this}
-                .ui.center.aligned.header Members
+            .twelve.wide.column
+                if currentUser.profile.current_group_id
+                    +cloud
+                    +docs
+            .four.wide.column
+                .ui.header Group Description
+                |{{nl2br description}}
+                .ui.header Members
                 .ui.items
                     each member_list
                         .item
-                            .ui.tiny.image                 
-                                img(src="{{c.url profile.image_id }}")
                             .content
                                 .header
                                     | #{username}
                                 .meta
                                     each tags
                                         .ui.basic.label #{this}
-            .five.wide.column
                 unless currentUser
-                    .ui.basic.fluid.button 
-                        .shadows Sign In and Join Group
+                    | Sign In above to join group
                 if is_member
                     if is_inside_group
                         #go_outside_group.ui.basic.yellow.fluid.button
@@ -46,7 +32,7 @@ with group
                         #go_inside_group.ui.basic.blue.fluid.button
                             | Go Inside #{name} Group
                 .ui.hidden.divider
-                .ui.center.aligned.header Tags
+                .ui.header Group Tags
                 each tags
                     .ui.basic.label #{this}
                 if currentUser

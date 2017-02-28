@@ -24,7 +24,7 @@ if Meteor.isClient
                 when @index <= 20 then 'small'
             return button_class
     
-        selected_group_tags: -> selected_group_tags.list()
+        selected_group_tags: -> selected_group_tags.array()
     
         settings: -> {
             position: 'bottom'

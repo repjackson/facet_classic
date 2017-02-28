@@ -4,9 +4,16 @@
 
 if Meteor.isServer
     Meteor.publish 'tags', (selected_tags)->
+        current_group_id = Meteor.users.findOne(@userId).profile.current_group_id
+
+    
         self = @
         match = {}
         if selected_tags.length > 0 then match.tags = $all: selected_tags
+    
+        match.group_id = current_group_id
+
+    
     
         cloud = Docs.aggregate [
             { $match: match }

@@ -7,10 +7,10 @@ template(name='docs')
 
 template(name='item')
     .ui.item
-        .image
-            // a(href="/view/#{_id}")
-            //     img.ui.large.centered.image(src="{{c.url image_id }}")
-            img(src="{{c.url author.profile.image_id width=300 height=300 gravity='face' crop='fill'}}")
+        // .image
+        //     // a(href="/view/#{_id}")
+        //     //     img.ui.large.centered.image(src="{{c.url image_id }}")
+        //     img(src="{{c.url author.profile.image_id width=300 height=300 gravity='face' crop='fill'}}")
     
         .content
             a(href="/view/#{_id}")
@@ -27,5 +27,5 @@ template(name='item')
             if can_edit
                 .edit.ui.icon.basic.button
                     i.pencil.icon.icon
-            else
+            // else
             // +user_card
