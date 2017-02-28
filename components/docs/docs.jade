@@ -1,17 +1,15 @@
 template(name='docs')
     .ui.container
-        .ui.hidden.divider
         .ui.divided.relaxed.items
             each docs
                 +item
 
 template(name='item')
     .ui.item
-        // .image
-        //     // a(href="/view/#{_id}")
-        //     //     img.ui.large.centered.image(src="{{c.url image_id }}")
-        //     img(src="{{c.url author.profile.image_id width=300 height=300 gravity='face' crop='fill'}}")
-    
+        if image_id
+            .image
+                a(href="/view/#{_id}")
+                    img.ui.large.centered.image(src="{{c.url image_id width=400 height=400 gravity='face' crop='fill' }}")
         .content
             a(href="/view/#{_id}")
                 h1.ui.header #{title}
@@ -24,6 +22,7 @@ template(name='item')
                 div by {{author.username}} #{when}
             if can_edit
                 .edit.ui.icon.button
-                    i.pencil.icon.icon
-            // else
-            // +user_card
+                    i.pencil.icon
+                .clone.ui.icon.button
+                    i.fork.icon
+                    | Clone

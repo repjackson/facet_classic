@@ -1,7 +1,6 @@
 template(name='groups')
     .ui.container
-        h1.ui.center.aligned.header Groups
-            #add_group.ui.button +
+        h1.ui.center.aligned.header groups
         +group_cloud
         +group_items
         
@@ -10,6 +9,8 @@ template(name='groups')
 
 template(name='group_cloud')
     #cloud.ui.basic.segment.center.aligned.container
+        #add_group.ui.icon.button
+            i.plus.icon
         .ui.left.icon.input
             i.search.icon
             +inputAutocomplete settings=settings id="search" class="" autocomplete="off" 

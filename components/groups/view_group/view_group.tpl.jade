@@ -9,25 +9,22 @@ with group
             .four.wide.column
                 if is_member
                     a#add.ui.fluid.button
-                        i.plus.icon
-                        | Add
-                .ui.header Members
+                        | add
+                .ui.header members
                 .ui.bulleted.list
                     each member_list
                         .item #{username}
-                .ui.header Group Tags
+                .ui.header group tags
                 each tags
                     .ui.label #{this}
                 if currentUser
-                    .ui.header Your Membership
+                    .ui.header your membership
                     if is_member
                         #leave_group.ui.fluid.button
-                            i.minus.icon
-                            | Leave
+                            | leave
                     else
                         #join_group.ui.fluid.button
-                            i.plus.icon
-                            | Join
+                            | join
                 // .ui.hidden.divider
                 // .ui.horizontal.divider.header Group Type
                 // if private
@@ -38,6 +35,6 @@ with group
                 if isInRole 'admin'
                     .extra.content
                         .ui.header 
-                            |Admin
+                            |admin
                         .edit.ui.fluid.button
-                            | Edit
+                            | edit group

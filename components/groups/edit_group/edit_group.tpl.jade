@@ -1,6 +1,6 @@
 with group
     .ui.container.basic.segment
-        .ui.center.aligned.header Edit #{name} Group
+        .ui.center.aligned.header edit #{name} group
         .ui.form
             .field
                 label Name
@@ -8,7 +8,7 @@ with group
             .field
                 label Tags
                 each tags
-                    .ui.basic.button.doc_tag
+                    .ui.button.doc_tag
                         i.minus.icon
                         |#{this}
                 .ui.left.icon.four.wide.input
@@ -17,4 +17,4 @@ with group
             if tags
                 .ui.center.aligned.basic.segment
                     #save.ui.big.button 
-                        | Save #{name} Group
+                        | save #{name} group

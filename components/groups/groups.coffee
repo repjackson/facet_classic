@@ -30,7 +30,7 @@ if Meteor.isClient
     Template.group_items.onCreated ->
         @autorun -> Meteor.subscribe('groups', selected_group_tags.array())
     
-    Template.groups.events
+    Template.group_cloud.events
         'click #add_group': ->
             id = Groups.insert {}
             FlowRouter.go "/group/edit/#{id}"

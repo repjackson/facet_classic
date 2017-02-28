@@ -1,7 +1,8 @@
-.ui.inverted.stackable.large.menu
+.ui.inverted.stackable.borderless.large.menu
     .ui.container
         a.header.icon.item(href='/' class="{{isActivePath '/'}}") 
-            i.big.home.icon
+            // i.big.home.icon
+            |facet
         // a.item(href='/groups' class="{{isActivePath '/groups'}}") Groups
         .right.menu
             if currentUser.profile.current_group_name
@@ -13,8 +14,8 @@
                 .item #{currentUser.username}
                 a#logout.ui.item(href='#') 
                     i.sign.out.icon
-                    |Sign Out
+                    |sign out
             else
                 a.ui.item(href='/sign-in') 
                     i.sign.in.icon
-                    |Sign In
+                    |sign in

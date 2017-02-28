@@ -13,4 +13,4 @@ Template.delete_button.events
         }, ->
             doc = Docs.findOne FlowRouter.getParam('doc_id')
             Docs.remove doc._id, ->
-                FlowRouter.go "/view/group/#{doc.group_id}"
+                FlowRouter.go "/group/view/#{doc.group_id}"

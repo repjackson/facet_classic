@@ -21,6 +21,13 @@ Meteor.methods
             group_id: group_id
         return id
 
+    clone: (original_id)->
+        original = Docs.findOne original_id
+        id = Docs.insert
+            group_id: original.group_id
+            tags: original.tags
+        return id
+
 
 if Meteor.isClient
     Template.docs.onCreated -> 
@@ -47,6 +54,12 @@ if Meteor.isClient
         'click .tag': -> if @valueOf() in selected_tags.array() then selected_tags.remove(@valueOf()) else selected_tags.push(@valueOf())
     
         'click .edit': -> FlowRouter.go("/edit/#{@_id}")
+
+        'click .clone': ->
+            Meteor.call 'clone', @_id, (err,id)->
+                FlowRouter.go "/edit/#{id}"
+
+
 
 
 

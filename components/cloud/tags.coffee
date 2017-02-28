@@ -35,8 +35,7 @@ if Meteor.isClient
         }
         
     
-        selected_tags: -> 
-            selected_tags.array()
+        selected_tags: -> selected_tags.array()
     
     
     Template.cloud.events

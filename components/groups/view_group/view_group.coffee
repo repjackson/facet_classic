@@ -57,11 +57,6 @@ if Meteor.isClient
             Meteor.users.update Meteor.userId(),
                 $pull: "profile.groups": FlowRouter.getParam('group_id')
             
-        'click #go_inside_group': ->
-            Meteor.call 'go_inside_group', @_id
-
-        'click #go_outside_group': ->
-            Meteor.call 'go_outside_group'
 
 
 
