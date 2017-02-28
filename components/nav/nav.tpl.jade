@@ -1,14 +1,14 @@
-.ui.inverted.stackable.menu
+.ui.inverted.stackable.large.menu
     .ui.container
-        a.header.item(href='/' class="{{isActivePath '/'}}") 
-            h3 Facet
-        a.item(href='/groups' class="{{isActivePath '/groups'}}") Groups
+        a.header.icon.item(href='/' class="{{isActivePath '/'}}") 
+            i.big.home.icon
+        // a.item(href='/groups' class="{{isActivePath '/groups'}}") Groups
         .right.menu
             if currentUser.profile.current_group_name
-                a#add.ui.item
-                    i.plus.icon
-                    | Add
-                .item Current Group: #{currentUser.profile.current_group_name}
+                // a#add.ui.item
+                //     i.plus.icon
+                //     | Add
+                // a.item(href="/group/view/#{currentUser.profile.current_group_id}" class="{{isActivePath '/group/view/#{currentUser.profile.current_group_id}'}}") Current Group: #{currentUser.profile.current_group_name}
             if currentUser
                 .item #{currentUser.username}
                 a#logout.ui.item(href='#') 

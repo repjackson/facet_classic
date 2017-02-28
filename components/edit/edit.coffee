@@ -20,4 +20,6 @@ if Meteor.isClient
             
     Template.edit.events
         'click #save': ->
-            FlowRouter.go "/view/#{@_id}"
+            selected_tags.clear()
+            selected_tags.push tag for tag in @tags
+            FlowRouter.go "/group/view/#{@group_id}"

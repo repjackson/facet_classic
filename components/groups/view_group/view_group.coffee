@@ -38,6 +38,10 @@ if Meteor.isClient
             group_id = FlowRouter.getParam('group_id')
             FlowRouter.go "/group/edit/#{group_id}"
 
+        'click #add': ->
+            Meteor.call 'add', (err,id)->
+                FlowRouter.go "/edit/#{id}"
+
 
         'click #join_group': ->
             Groups.update FlowRouter.getParam('group_id'),

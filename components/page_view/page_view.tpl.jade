@@ -15,12 +15,9 @@ with item
             .five.wide.column
                 h2.ui.header Tags
                 each tags
-                    .ui.basic.label #{this}
-                if isInRole 'admin'
-                    h2.ui.header Status
-                    .extra.content
-                        .ui.divider
-                        i.large.red.configure.icon
-                        .edit.ui.primary.basic.button
-                            i.pencil.icon
-                            |Edit
+                    .ui.label #{this}
+                .ui.divider
+                if can_edit
+                    .edit.ui.button
+                        i.pencil.icon
+                        |Edit

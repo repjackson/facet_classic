@@ -1,27 +1,26 @@
 template(name='groups')
     .ui.container
         h1.ui.center.aligned.header Groups
+            #add_group.ui.button +
         +group_cloud
         +group_items
-        #add_group.ui.basic.big.circular.icon.button
-            i.green.plus.icon
         
     
     
 
 template(name='group_cloud')
     #cloud.ui.basic.segment.center.aligned.container
-        .ui.left.icon.input
-            i.search.icon
-            +inputAutocomplete settings=settings id="search" class="" autocomplete="off" 
+        // .ui.left.icon.input
+        //     i.search.icon
+        //     +inputAutocomplete settings=settings id="search" class="" autocomplete="off" 
         if selected_group_tags
-            #clear_tags.ui.primary.icon.circular.large.button
+            #clear_tags.ui.active.icon.large.button
                 i.remove.icon
             each selected_group_tags
-                .unselect_tag.ui.primary.circular.large.button
+                .unselect_tag.ui.active.large.button
                     strong #{this}
         each group_tags
-            .ui.circular.basic.button.select_tag(class=cloud_tag_class) 
+            .ui.compact.button.select_tag(class=cloud_tag_class) 
                 strong #{this.name}
                 // small #{this.count}
 
@@ -41,9 +40,9 @@ template(name='group_item')
         .content
             a(href="/group/view/#{_id}")
                 .ui.header #{name}
-            .description !{description}
+            // .description !{description}
             .extra
                 each tags
-                    .ui.basic.tiny.button #{this}
-                a.ui.basic.circular.icon.button(href="/group/edit/#{_id}")
-                    i.blue.pencil.icon
+                    .ui.tiny.button #{this}
+                a.ui.icon.button(href="/group/edit/#{_id}")
+                    i.pencil.icon

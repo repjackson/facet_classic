@@ -25,25 +25,22 @@ Meteor.methods
 
 if Meteor.isClient
     Template.docs.onCreated -> 
-        @autorun -> Meteor.subscribe('docs', selected_tags.array())
+        @autorun -> Meteor.subscribe('docs', selected_tags.array(), FlowRouter.getParam('group_id') )
 
     Template.docs.helpers
         docs: -> 
             Docs.find { }, 
                 sort:
                     tag_count: 1
-                limit: 10
+                limit: 1
     
-        tag_class: -> if @valueOf() in selected_tags.array() then 'secondary' else 'basic'
-
-
     
     Template.docs.events
 
     Template.item.helpers
         is_author: -> Meteor.userId() and @author_id is Meteor.userId()
     
-        tag_class: -> if @valueOf() in selected_tags.array() then 'secondary' else 'basic'
+        tag_class: -> if @valueOf() in selected_tags.array() then 'active' else 'compact'
     
         when: -> moment(@timestamp).fromNow()
 
@@ -63,16 +60,14 @@ if Meteor.isServer
     
     
     
-    Meteor.publish 'docs', (selected_tags)->
-        current_group_id = Meteor.users.findOne(@userId).profile.current_group_id
-        
-        
+    Meteor.publish 'docs', (selected_tags, group_id)->
         
         self = @
         match = {}
-        if selected_tags.length > 0 then match.tags = $all: selected_tags
+        # if selected_tags.length > 0 then match.tags = $all: selected_tags
+        match.tags = $all: selected_tags
     
-        match.group_id = current_group_id
+        match.group_id = group_id
         
         Docs.find match,
             limit: 5
