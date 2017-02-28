@@ -3,8 +3,6 @@
 Docs.before.insert (userId, doc)->
     doc.timestamp = Date.now()
     doc.author_id = Meteor.userId()
-    doc.group_id = Meteor.user().profile.current_group_id
-    doc.group_name = Meteor.user().profile.current_group_name
     return
 
 Docs.after.update ((userId, doc, fieldNames, modifier, options) ->
@@ -18,8 +16,9 @@ Docs.helpers
 
 
 Meteor.methods
-    add: ()->
-        id = Docs.insert {}
+    add: (group_id)->
+        id = Docs.insert
+            group_id: group_id
         return id
 
 

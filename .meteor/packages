@@ -33,7 +33,6 @@ zimme:active-route
 alanning:roles
 momentjs:moment
 froala:editor-reactive
-service-configuration@1.0.11
 useraccounts:flow-routing
 useraccounts:semantic-ui
 kevohagan:sweetalert

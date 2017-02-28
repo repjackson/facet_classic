@@ -22,8 +22,6 @@ template(name='item')
                 |!{description}
             .extra
                 div by {{author.username}} #{when}
-                div Group: #{group_name}
-                
             if can_edit
                 .edit.ui.icon.button
                     i.pencil.icon.icon

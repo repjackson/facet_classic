@@ -39,7 +39,8 @@ if Meteor.isClient
             FlowRouter.go "/group/edit/#{group_id}"
 
         'click #add': ->
-            Meteor.call 'add', (err,id)->
+            group_id = FlowRouter.getParam('group_id')
+            Meteor.call 'add', group_id, (err,id)->
                 FlowRouter.go "/edit/#{id}"
 
 
@@ -72,17 +73,3 @@ if Meteor.isServer
         Meteor.users.find 
             "profile.groups": $in: [id]
     
-    Meteor.methods
-        go_inside_group: (id)->
-            group = Groups.findOne id
-            Meteor.users.update Meteor.userId(),
-                $set: 
-                    "profile.current_group_id": id
-                    "profile.current_group_name": group.name
-        
-        go_outside_group: ->
-            Meteor.users.update Meteor.userId(),
-                $unset: 
-                    "profile.current_group_id": ""
-                    "profile.current_group_name": ""
-            
