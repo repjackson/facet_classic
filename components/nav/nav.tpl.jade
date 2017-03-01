@@ -4,6 +4,12 @@
             // i.big.home.icon
             |facet
         // a.item(href='/groups' class="{{isActivePath '/groups'}}") Groups
+        a.disabled.item(href='/people_cards' class="{{isActivePath '/people_cards'}}")
+            i.users.icon
+        a.disabled.item(href='/events' class="{{isActivePath '/events'}}")
+            i.calendar.icon
+        a.disabled.item(href='/posts' class="{{isActivePath '/posts'}}")
+            i.newspaper.icon
         .right.menu
             if currentUser
                 .icon.disabled.item
@@ -14,7 +20,6 @@
                     i.mail.outline.icon
                 a.item(href='/conversations' class="{{isActivePath '/conversations'}}")
                     i.chat.icon
-                    | conversations
                 .item #{currentUser.username}
                 a#logout.ui.item(href='#') 
                     i.sign.out.icon

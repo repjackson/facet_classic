@@ -68,12 +68,12 @@
     "instagram": false,
     "material": false,
     "pulsar": false,
-    "raised": true,
+    "raised": false,
     "resetcss": false,
     "round": false,
     "rtl": false,
     "striped": false,
     "timeline": false,
-    "twitter": false
+    "twitter": true
   }
 }
