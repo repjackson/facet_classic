@@ -5,18 +5,19 @@ if Meteor.isClient
                 onChangeDateTime: (dp,$input)->
                     val = $input.val()
     
-                    console.log moment(val).format("dddd, MMMM Do YYYY, h:mm:ss a")
+                    # console.log moment(val).format("dddd, MMMM Do YYYY, h:mm:ss a")
                     minute = moment(val).minute()
                     hour = moment(val).format('h')
                     date = moment(val).format('Do')
                     ampm = moment(val).format('a')
                     weekdaynum = moment(val).isoWeekday()
-                    weekday = moment().isoWeekday(weekdaynum).format('dddd')
+                    weekday = moment().isoWeekday(weekdaynum).format('dddd').toLowerCase()
     
-                    month = moment(val).format('MMMM')
-                    year = moment(val).format('YYYY')
+                    month = moment(val).format('MMMM').toLowerCase()
+                    year = moment(val).format('YYYY').toLowerCase()
     
-                    date_array = [hour, minute, ampm, weekday, month, date, year]
+                    # date_array = [hour, minute, ampm, weekday, month, date, year]
+                    date_array = [weekday, month, date, year]
     
                     doc_id = FlowRouter.getParam 'doc_id'
     
@@ -28,18 +29,18 @@ if Meteor.isClient
                         $set:
                             tags: tags_with_new
                             date_array: date_array
-                            dateTime: val
+                            date_time: val
                 )), 2000
     
     
     
     Template.edit_date.events
-        'click .clearDT': ->
-            tagsWithoutDate = _.difference(@tags, @datearray)
+        'click .clear': ->
+            tags_without_date = _.difference(@tags, @date_array)
             Docs.update FlowRouter.getParam('docId'),
                 $set:
-                    tags: tagsWithoutDate
-                    datearray: []
-                    dateTime: null
-            $('#datetimepicker').val('')
+                    tags: tags_without_date
+                    date_array: []
+                    date_time: null
+            $('#date').val('')
 
