@@ -6,3 +6,11 @@ maybe
     spend a credit for someone elses post
     creates a skillshare community
     get famous for tags?
+    
+    
+    
+marketplace
+    offer price, someone can buy, we take 10%
+    
+    
+replace reddit

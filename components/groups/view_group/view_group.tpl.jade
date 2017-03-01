@@ -9,8 +9,13 @@ with group
                     +docs
             .four.wide.column
                 if is_member
-                    a#add.ui.fluid.button
-                        | add
+                    .ui.header view mode
+                    .ui.disabled.button card
+                    .ui.disabled.button item
+                    .ui.disabled.button map
+                    .ui.disabled.button calendar
+                    .ui.disabled.button graph
+                    .ui.hidden.divider
                 .ui.header members
                 .ui.bulleted.list
                     each member_list
@@ -19,23 +24,25 @@ with group
                 each tags
                     .ui.label #{this}
                 if currentUser
-                    .ui.header your membership
+                    .ui.header actions
                     if is_member
-                        #leave_group.ui.fluid.button
-                            | leave
+                        a#add.ui.button
+                            | add document
+                        #leave_group.ui.button
+                            | leave group
                     else
-                        #join_group.ui.fluid.button
-                            | join
-                // .ui.hidden.divider
-                // .ui.horizontal.divider.header Group Type
-                // if private
-                //     .ui.big.label Private
-                // else
-                //     .ui.big.label Public
+                        #join_group.ui.button
+                            | join group
+                .ui.hidden.divider
+                .ui.horizontal.divider.header Group Type
+                if private
+                    .ui.big.label Private
+                else
+                    .ui.big.label Public
                 .ui.hidden.divider
                 if isInRole 'admin'
                     .extra.content
                         .ui.header 
                             |admin
-                        .edit.ui.fluid.button
+                        .edit.ui.button
                             | edit group

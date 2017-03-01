@@ -1,16 +1,20 @@
-.ui.inverted.stackable.borderless.large.menu
+.ui.inverted.stackable.borderless.big.menu
     .ui.container
         a.header.icon.item(href='/' class="{{isActivePath '/'}}") 
             // i.big.home.icon
             |facet
         // a.item(href='/groups' class="{{isActivePath '/groups'}}") Groups
         .right.menu
-            if currentUser.profile.current_group_name
-                // a#add.ui.item
-                //     i.plus.icon
-                //     | Add
-                // a.item(href="/group/view/#{currentUser.profile.current_group_id}" class="{{isActivePath '/group/view/#{currentUser.profile.current_group_id}'}}") Current Group: #{currentUser.profile.current_group_name}
             if currentUser
+                .icon.disabled.item
+                    i.cart.outline.icon
+                .icon.disabled.item
+                    i.alarm.outline.icon
+                .icon.disabled.item
+                    i.mail.outline.icon
+                a.item(href='/conversations' class="{{isActivePath '/conversations'}}")
+                    i.chat.icon
+                    | conversations
                 .item #{currentUser.username}
                 a#logout.ui.item(href='#') 
                     i.sign.out.icon

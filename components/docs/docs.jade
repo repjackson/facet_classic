@@ -21,8 +21,5 @@ template(name='item')
             .extra
                 div by {{author.username}} #{when}
             if can_edit
-                .edit.ui.icon.button
-                    i.pencil.icon
-                .clone.ui.icon.button
-                    i.fork.icon
-                    | Clone
+                .edit.ui.icon.button edit
+                .clone.ui.icon.button clone
