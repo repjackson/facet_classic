@@ -1,11 +1,4 @@
 if Meteor.isClient
-    Meteor.startup ->
-        GoogleMaps.load
-            key: 'AIzaSyBluAacaAcSdXuk0hTRrnvoly0HI5wcf2Q'
-            libraries: 'places'
-
-
-
     Template.edit_place.onRendered ->    
         @autorun ->
             if GoogleMaps.loaded()
