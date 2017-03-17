@@ -6,14 +6,11 @@ FlowRouter.route '/edit/:doc_id', action: (params) ->
 if Meteor.isClient
     
     Template.edit.onCreated ->
-        self = @
-        self.autorun ->
-            self.subscribe 'doc', FlowRouter.getParam('doc_id')
+        @autorun -> Meteor.subscribe 'doc', FlowRouter.getParam('doc_id')
     
     
     Template.edit.helpers
-        doc: ->
-            Docs.findOne FlowRouter.getParam('doc_id')
+        doc: -> Docs.findOne FlowRouter.getParam('doc_id')
         
     
             
@@ -22,4 +19,4 @@ if Meteor.isClient
         'click #save': ->
             selected_tags.clear()
             selected_tags.push tag for tag in @tags
-            FlowRouter.go "/group/view/#{@group_id}"
+            FlowRouter.go "/"

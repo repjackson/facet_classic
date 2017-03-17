@@ -17,21 +17,19 @@ Docs.helpers
 
 Meteor.methods
     add: (group_id)->
-        id = Docs.insert
-            group_id: group_id
+        id = Docs.insert {}
         return id
 
     clone: (original_id)->
         original = Docs.findOne original_id
         id = Docs.insert
-            group_id: original.group_id
             tags: original.tags
         return id
 
 
 if Meteor.isClient
     Template.docs.onCreated -> 
-        @autorun -> Meteor.subscribe('docs', selected_tags.array(), FlowRouter.getParam('group_id') )
+        @autorun -> Meteor.subscribe('docs', selected_tags.array())
 
     Template.docs.helpers
         docs: -> 
@@ -79,8 +77,6 @@ if Meteor.isServer
         # if selected_tags.length > 0 then match.tags = $all: selected_tags
         match.tags = $all: selected_tags
     
-        match.group_id = group_id
-        
         Docs.find match,
             limit: 5
             
