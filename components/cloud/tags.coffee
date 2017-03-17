@@ -5,7 +5,7 @@ if Meteor.isClient
     @selected_tags = new ReactiveArray []
     
     Template.cloud.onCreated ->
-        @autorun -> Meteor.subscribe('tags', selected_tags.array(), FlowRouter.getParam('group_id'))
+        @autorun -> Meteor.subscribe('tags', selected_tags.array())
     
     Template.cloud.helpers
         all_tags: ->
@@ -74,14 +74,10 @@ if Meteor.isClient
 
 
 if Meteor.isServer
-    Meteor.publish 'tags', (selected_tags, group_id)->
+    Meteor.publish 'tags', (selected_tags)->
         self = @
         match = {}
         if selected_tags.length > 0 then match.tags = $all: selected_tags
-    
-        if group_id then match.group_id = group_id
-
-    
     
         cloud = Docs.aggregate [
             { $match: match }
