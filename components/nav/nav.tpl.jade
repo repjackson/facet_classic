@@ -1,11 +1,11 @@
-.ui.inverted.stackable.borderless.menu
+.ui.inverted.stackable.big.menu
     .ui.container
         a.header.icon.item(href='/' class="{{isActivePath '/'}}") 
-            |facet
+            h2 facet
         if currentUser
             .item #{currentUser.username}
-            a#logout.ui.item(href='#') 
+            a#logout.ui.icon.item(href='#') 
                 i.sign.out.icon
         else
-            a.ui.item(href='/sign-in') 
+            a.ui.icon.item(href='/sign-in') 
                 i.sign.in.icon

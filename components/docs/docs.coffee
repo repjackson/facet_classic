@@ -57,6 +57,10 @@ if Meteor.isClient
             Meteor.call 'clone', @_id, (err,id)->
                 FlowRouter.go "/edit/#{id}"
 
+        'click .delete': ->
+            if confirm 'delete?'
+                Docs.remove @_id
+
 
 
 

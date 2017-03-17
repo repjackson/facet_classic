@@ -1,18 +1,11 @@
 with doc
     .ui.container
-        .image
-            img.ui.centered.image(src="{{c.url image_id height=400 width=800 background='white' crop='lpad'}}")
-            h1.ui.center.aligned.header #{title}
+        each tags
+            .ui.big.label #{this}
         .ui.hidden.divider
-        .ui.divided.stackable.grid
-            .ten.wide.column
-                .description
-                    |!{description}
-            .five.wide.column
-                h2.ui.header Tags
-                each tags
-                    .ui.label #{this}
-                .ui.divider
-                if can_edit
-                    .edit.ui.icon.button
-                        i.pencil.icon
+        .description
+            |!{body}
+        .ui.divider
+        if can_edit
+            .edit.ui.icon.button
+                i.pencil.icon
