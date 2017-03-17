@@ -1,28 +1,11 @@
-.ui.inverted.stackable.borderless.big.menu
+.ui.inverted.stackable.borderless.menu
     .ui.container
         a.header.icon.item(href='/' class="{{isActivePath '/'}}") 
-            // i.big.home.icon
             |facet
-        // // a.item(href='/groups' class="{{isActivePath '/groups'}}") Groups
-        // a.item(href='/people_cards' class="{{isActivePath '/people_cards'}}")
-        //     i.users.icon
-        // a.item(href='/events' class="{{isActivePath '/events'}}")
-        //     i.calendar.icon
-        // a.item(href='/posts' class="{{isActivePath '/posts'}}")
-        //     i.newspaper.icon
-        .right.menu
-            if currentUser
-                .icon.item
-                    i.cart.outline.icon
-                .icon.item
-                    i.alarm.outline.icon
-                .icon.item
-                    i.mail.outline.icon
-                a.item(href='/conversations' class="{{isActivePath '/conversations'}}")
-                    i.chat.icon
-                .item #{currentUser.username}
-                a#logout.ui.item(href='#') 
-                    i.sign.out.icon
-            else
-                a.ui.item(href='/sign-in') 
-                    i.sign.in.icon
+        if currentUser
+            .item #{currentUser.username}
+            a#logout.ui.item(href='#') 
+                i.sign.out.icon
+        else
+            a.ui.item(href='/sign-in') 
+                i.sign.in.icon
