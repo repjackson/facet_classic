@@ -79,7 +79,7 @@ if Meteor.isServer
         match = {}
         if selected_tags.length > 0 then match.tags = $all: selected_tags
     
-        match.group_id = group_id
+        if group_id then match.group_id = group_id
 
     
     

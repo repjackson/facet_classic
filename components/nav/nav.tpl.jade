@@ -3,28 +3,26 @@
         a.header.icon.item(href='/' class="{{isActivePath '/'}}") 
             // i.big.home.icon
             |facet
-        // a.item(href='/groups' class="{{isActivePath '/groups'}}") Groups
-        a.disabled.item(href='/people_cards' class="{{isActivePath '/people_cards'}}")
-            i.users.icon
-        a.disabled.item(href='/events' class="{{isActivePath '/events'}}")
-            i.calendar.icon
-        a.disabled.item(href='/posts' class="{{isActivePath '/posts'}}")
-            i.newspaper.icon
+        // // a.item(href='/groups' class="{{isActivePath '/groups'}}") Groups
+        // a.item(href='/people_cards' class="{{isActivePath '/people_cards'}}")
+        //     i.users.icon
+        // a.item(href='/events' class="{{isActivePath '/events'}}")
+        //     i.calendar.icon
+        // a.item(href='/posts' class="{{isActivePath '/posts'}}")
+        //     i.newspaper.icon
         .right.menu
             if currentUser
-                .icon.disabled.item
+                .icon.item
                     i.cart.outline.icon
-                .icon.disabled.item
+                .icon.item
                     i.alarm.outline.icon
-                .icon.disabled.item
+                .icon.item
                     i.mail.outline.icon
                 a.item(href='/conversations' class="{{isActivePath '/conversations'}}")
                     i.chat.icon
                 .item #{currentUser.username}
                 a#logout.ui.item(href='#') 
                     i.sign.out.icon
-                    |sign out
             else
                 a.ui.item(href='/sign-in') 
                     i.sign.in.icon
-                    |sign in

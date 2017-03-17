@@ -1,4 +1,4 @@
 FlowRouter.route '/', action: (params) ->
     BlazeLayout.render 'layout',
         # cloud: 'cloud'
-        main: 'groups'
+        main: 'docs'
