@@ -29,12 +29,8 @@ kadira:flow-router
 kadira:blaze-layout
 accounts-base@1.2.14
 zimme:active-route
-momentjs:moment
 useraccounts:flow-routing
 useraccounts:semantic-ui
 mizzao:autocomplete
 raix:handlebar-helpers
-perak:codemirror
-markdown
 jquery
-froala:editor-reactive@=2.4.2

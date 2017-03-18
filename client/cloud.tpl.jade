@@ -1,21 +1,24 @@
 if currentUser
-    .ui.inverted.grey.label #{currentUser.username}
+    a#logout.ui.inverted.grey.button(href='#') 
+        i.sign.out.icon
+        | #{currentUser.username}
+else
+    a.ui.icon.inverted.grey.button(href='/sign-in') 
+        i.sign.in.icon
+div
+    if currentUser
+        .ui.inverted.transparent.massive.input
+            input#quick_add(type='text' placeholder='add')
+div
+    .ui.inverted.transparent.massive.input
+        +inputAutocomplete settings=settings id="search" class="" autocomplete="off" placeholder='search' autofocus=''
     if selected_tags
-        #add.ui.icon.active.large.button
-            i.plus.icon
-    else
-        #add.ui.icon.inverted.grey.large.button
-            i.plus.icon
-+atNavButton
-.ui.inverted.transparent.big.input
-    +inputAutocomplete settings=settings id="search" class="" autocomplete="off" placeholder='search' autofocus=''
-if selected_tags
-    #clear_tags.ui.active.big.icon.inverted.grey.button
-        i.remove.icon
-if selected_tags
-    each selected_tags
-        a.ui.active.big.inverted.grey.button.unselect_tag
-            strong #{this}
-each all_tags
-    .ui.inverted.grey.button.select_tag(class=tag_cloud_class) #{this.name}
-        // small #{this.count}
+        #clear_tags.ui.active.big.icon.inverted.grey.button
+            i.remove.icon
+    if selected_tags
+        each selected_tags
+            a.ui.active.big.inverted.grey.button.unselect_tag
+                strong #{this}
+    each all_tags
+        .ui.inverted.grey.button.select_tag(class=tag_cloud_class) #{this.name}
+            // small #{this.count}

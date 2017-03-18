@@ -5,8 +5,9 @@ Template.cloud.onCreated ->
 
 Template.cloud.helpers
     all_tags: ->
-        doc_count = Docs.find().count()
-        if 0 < doc_count < 3 then Tags.find { count: $lt: doc_count } else Tags.find()
+        # doc_count = Docs.find().count()
+        # if 0 < doc_count < 3 then Tags.find { count: $lt: doc_count } else Tags.find()
+        Tags.find()
 
     tag_cloud_class: ->
         button_class = switch
@@ -55,11 +56,23 @@ Template.cloud.events
                 if val.length is 0
                     selected_tags.pop()
                     
-                    
-    'click #add': ->
-        tags = selected_tags.array()
-        Meteor.call 'add', tags, (err,id)->
-            FlowRouter.go "/edit/#{id}"
+    'keyup #quick_add': (e,t)->
+        e.preventDefault
+        tag = $('#quick_add').val().toLowerCase()
+        switch e.which
+            when 13
+                if tag.length > 0
+                    split_tags = tag.match(/\S+/g)
+                    $('#quick_add').val('')
+                    Meteor.call 'add', split_tags
+                    selected_tags.clear()
+                    for tag in split_tags
+                        selected_tags.push tag
+            when 8
+                if tag.length is 0
+                    selected_tags.pop()
+
+    'click #logout': -> AccountsTemplates.logout()
                     
                     
     'autocompleteselect #search': (event, template, doc) ->

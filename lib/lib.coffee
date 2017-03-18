@@ -1,7 +1,7 @@
 FlowRouter.route '/', action: (params) ->
     BlazeLayout.render 'layout',
         cloud: 'cloud'
-        main: 'docs'
+        # main: 'docs'
 
 
 FlowRouter.route '/edit/:doc_id', action: (params) ->

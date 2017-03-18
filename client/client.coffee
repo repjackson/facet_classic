@@ -16,7 +16,7 @@ Template.docs.helpers
         Docs.find { }, 
             sort:
                 tag_count: 1
-            limit: 1
+            limit: 5
 
 
 Template.docs.events
