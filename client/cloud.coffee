@@ -26,19 +26,6 @@ Template.cloud.helpers
             when @index <= 50 then ''
         return button_class
 
-    settings: -> {
-        position: 'bottom'
-        limit: 10
-        rules: [
-            {
-                collection: Tags
-                field: 'name'
-                matchAll: true
-                template: Template.tag_result
-            }
-            ]
-    }
-    
 
     selected_tags: -> selected_tags.array()
 
@@ -67,13 +54,15 @@ Template.cloud.events
                     
     'keyup #quick_add': (e,t)->
         e.preventDefault
-        tag = $('#quick_add').val().toLowerCase()
         switch e.which
             when 13
-                if tag.length > 0
-                    split_tags = tag.match(/\S+/g)
-                    $('#quick_add').val('')
+                input = $('#quick_add').val().toLowerCase()
+                if input.length > 0
+                    punctuationless = input.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"")
+                    finalString = punctuationless.replace(/\s{2,}/g," ")
+                    split_tags = finalString.match(/\S+/g)
                     Meteor.call 'add', split_tags
+                    $('#quick_add').val('')
                     selected_tags.clear()
                     for tag in split_tags
                         selected_tags.push tag
@@ -84,8 +73,3 @@ Template.cloud.events
     'click #logout': -> AccountsTemplates.logout()
                     
                     
-    'autocompleteselect #search': (event, template, doc) ->
-        # console.log 'selected ', doc
-        selected_tags.push doc.name
-        $('#search').val ''
-
