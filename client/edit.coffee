@@ -40,6 +40,11 @@ Template.edit.events
                 Docs.update doc_id,
                     $addToSet: tags: tag
                 $('#add_tag').val('')
+            else
+                selected_tags.clear()
+                selected_tags.push tag for tag in @tags
+                FlowRouter.go "/"
+
 
     'click .doc_tag': (e,t)->
         tag = @valueOf()

@@ -13,3 +13,4 @@ FlowRouter.route '/view/:doc_id', action: (params) ->
     BlazeLayout.render 'layout',
         main: 'page_view'
 
+@Tags = new Meteor.Collection 'tags'

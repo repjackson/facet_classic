@@ -5,23 +5,11 @@ head
     meta(name='apple-mobile-web-app-status-bar-style', content='black')
 
 
-
-
-
-
-
-
-
 template(name='layout')
-    +nav
     .ui.container
         +Template.dynamic template=cloud
         +Template.dynamic template=main
 
 
-
-
-
-                    
 template(name='tag_result')
-    .ui.small.compact.button #{name}
+    .ui.black.button #{name}
