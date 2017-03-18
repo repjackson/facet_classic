@@ -58,25 +58,25 @@ Template.cloud.events
                 if val.length is 0
                     selected_tags.pop()
                     
-    'keyup #quick_add': (e,t)->
-        e.preventDefault
-        switch e.which
-            when 13
-                input = $('#quick_add').val().toLowerCase()
-                if input.length > 0
-                    punctuationless = input.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"")
-                    finalString = punctuationless.replace(/\s{2,}/g," ")
-                    split_tags = finalString.match(/\S+/g)
-                    unique = _.uniq split_tags
-                    console.log unique
-                    Meteor.call 'add', unique
-                    $('#quick_add').val('')
-                    selected_tags.clear()
-                    for tag in unique
-                        selected_tags.push tag
-            when 8
-                if tag.length is 0
-                    selected_tags.pop()
+    # 'keyup #quick_add': (e,t)->
+    #     e.preventDefault
+    #     switch e.which
+    #         when 13
+    #             input = $('#quick_add').val().toLowerCase()
+    #             if input.length > 0
+    #                 punctuationless = input.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"")
+    #                 finalString = punctuationless.replace(/\s{2,}/g," ")
+    #                 split_tags = finalString.match(/\S+/g)
+    #                 unique = _.uniq split_tags
+    #                 console.log unique
+    #                 Meteor.call 'add', unique
+    #                 $('#quick_add').val('')
+    #                 selected_tags.clear()
+    #                 for tag in unique
+    #                     selected_tags.push tag
+    #         when 8
+    #             if tag.length is 0
+    #                 selected_tags.pop()
 
     'click #logout': -> AccountsTemplates.logout()
                     

@@ -1,7 +1,7 @@
 Docs.allow
     insert: (userId, doc) -> doc.author_id is userId
-    update: (userId, doc) -> doc.author_id is userId or Roles.userIsInRole(userId, 'admin')
-    remove: (userId, doc) -> doc.author_id is userId or Roles.userIsInRole(userId, 'admin')
+    update: (userId, doc) -> doc.author_id is userId
+    remove: (userId, doc) -> doc.author_id is userId
 
 
 
@@ -32,7 +32,7 @@ Meteor.publish 'tags', (selected_tags)->
         { $group: _id: "$tags", count: $sum: 1 }
         { $match: _id: $nin: selected_tags }
         { $sort: count: -1, _id: 1 }
-        { $limit: 20 }
+        { $limit: 10 }
         { $project: _id: 0, name: '$_id', count: 1 }
         ]
 

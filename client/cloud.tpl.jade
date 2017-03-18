@@ -1,14 +1,14 @@
 if currentUser
-    a#logout.ui.inverted.grey.button(href='#') 
+    a#logout.ui.inverted.grey.big.button(href='#') 
         i.sign.out.icon
         | #{currentUser.username}
-    #add.ui.big.inverted.icon.button
+    #add.ui.big.inverted.icon.big.button
         i.plus.icon
 else
     a.ui.icon.inverted.grey.button(href='/sign-in') 
         i.sign.in.icon
 .ui.hidden.divider
-.ui.inverted.transparent.huge.left.icon.fluid.input
+.ui.inverted.transparent.big.left.icon.fluid.input
     i.search.icon
     input#search(type='text' autofocus='' autocomplete='off')
 .ui.hidden.divider
