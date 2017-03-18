@@ -21,14 +21,14 @@ Template.docs.helpers
 
 Template.docs.events
 
-Template.item.helpers
+Template.doc.helpers
     is_author: -> Meteor.userId() and @author_id is Meteor.userId()
 
     tag_class: -> if @valueOf() in selected_tags.array() then 'active' else 'compact'
 
     when: -> moment(@timestamp).fromNow()
 
-Template.item.events
+Template.doc.events
     'click .tag': -> if @valueOf() in selected_tags.array() then selected_tags.remove(@valueOf()) else selected_tags.push(@valueOf())
 
     'click .edit': -> FlowRouter.go("/edit/#{@_id}")

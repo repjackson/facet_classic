@@ -1,9 +1,12 @@
 if currentUser
     .ui.inverted.grey.label #{currentUser.username}
+    if selected_tags
+        #add.ui.icon.active.large.button
+            i.plus.icon
+    else
+        #add.ui.icon.inverted.grey.large.button
+            i.plus.icon
 +atNavButton
-if currentUser
-    #add.ui.icon.inverted.grey.button
-        i.plus.icon
 .ui.inverted.transparent.big.input
     +inputAutocomplete settings=settings id="search" class="" autocomplete="off" placeholder='search' autofocus=''
 if selected_tags

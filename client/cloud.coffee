@@ -57,7 +57,8 @@ Template.cloud.events
                     
                     
     'click #add': ->
-        Meteor.call 'add', (err,id)->
+        tags = selected_tags.array()
+        Meteor.call 'add', tags, (err,id)->
             FlowRouter.go "/edit/#{id}"
                     
                     

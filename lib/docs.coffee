@@ -16,8 +16,9 @@ Docs.helpers
 
 
 Meteor.methods
-    add: (group_id)->
-        id = Docs.insert {}
+    add: (tags=[])->
+        id = Docs.insert
+            tags: tags
         return id
 
     clone: (original_id)->
