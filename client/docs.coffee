@@ -6,7 +6,7 @@ Template.docs.helpers
         Docs.find { }, 
             sort:
                 tag_count: 1
-            limit: 1
+            # limit: 1
 
     one_doc: ->
         Docs.find().count() is 1

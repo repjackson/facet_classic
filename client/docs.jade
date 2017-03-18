@@ -1,9 +1,9 @@
 template(name='docs')
-    .ui.text.container
+    .ui.container
         +cloud
-        if one_doc
-            each docs
-                +doc
+        // if one_doc
+        each docs
+            +doc
 
 template(name='doc')
     .ui.basic.inverted.fluid.segment
@@ -17,9 +17,9 @@ template(name='doc')
         // a.ui.icon.button(href="/view/#{_id}")
         //     i.angle.right.icon
         if is_author
-            .edit.ui.icon.inverted.grey.button
+            .edit.ui.icon.inverted.basic.big.button
                 i.pencil.icon
-            // .clone.ui.icon.inverted.grey.button
+            // .clone.ui.icon.inverted.basic.big.button
             //     i.fork.icon
-            .delete.ui.icon.inverted.grey.button
+            .delete.ui.icon.inverted.basic.big.button
                 i.remove.icon

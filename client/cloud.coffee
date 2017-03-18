@@ -11,10 +11,10 @@ Template.cloud.helpers
 
     tag_cloud_class: ->
         button_class = switch
-            when @index <= 5 then 'big'
-            when @index <= 10 then 'large'
-            when @index <= 15 then ''
-            when @index <= 20 then 'small'
+            when @index <= 5 then 'huge'
+            when @index <= 10 then 'big'
+            when @index <= 15 then 'large'
+            when @index <= 20 then ''
         return button_class
     
 

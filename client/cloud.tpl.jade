@@ -1,25 +1,26 @@
 if currentUser
-    a#logout.ui.inverted.white.large.button(href='#') 
+    a#logout.ui.inverted.large.basic.button(href='#') 
         i.sign.out.icon
         | #{currentUser.username}
-    #add.ui.large.inverted.icon.large.button
+    #add.ui.large.inverted.icon.large.basic.button
         i.plus.icon
 else
-    a.ui.icon.inverted.white.button(href='/sign-in') 
+    a.ui.icon.inverted.basic.button(href='/sign-in') 
         i.sign.in.icon
 // .ui.hidden.divider
-.ui.inverted.transparent.large.left.icon.input
+.ui.inverted.transparent.big.left.icon.input
     i.search.icon
     input#search(type='text' autofocus='' autocomplete='off')
 .ui.hidden.divider
 if selected_tags
-    #clear_tags.ui.icon.inverted.white.huge.button
+    #clear_tags.ui.icon.inverted.huge.white.button
         i.remove.icon
 if selected_tags
     each selected_tags
-        a.ui.inverted.white.huge.button.unselect_tag
+        a.ui.inverted.huge.white.button.unselect_tag
             strong #{this}
+.ui.hidden.divider
 each all_tags
-    .ui.inverted.white.button.select_tag(class=tag_cloud_class) 
-        strong #{this.name}
+    .ui.inverted.basic.button.select_tag(class=tag_cloud_class) 
+        | #{this.name}
         // small #{this.count}
