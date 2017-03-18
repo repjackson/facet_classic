@@ -35,4 +35,6 @@ useraccounts:semantic-ui
 mizzao:autocomplete
 raix:handlebar-helpers
 perak:codemirror
+markdown
+jquery
 froala:editor-reactive@=2.4.2
