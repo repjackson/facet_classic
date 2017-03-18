@@ -17,15 +17,6 @@ Template.cloud.helpers
             when @index <= 20 then 'small'
         return button_class
     
-    # tag_cloud_class: ->
-    #     button_class = switch
-    #         when @index <= 10 then 'massive'
-    #         when @index <= 20 then 'huge'
-    #         when @index <= 30 then 'big'
-    #         when @index <= 40 then 'large'
-    #         when @index <= 50 then ''
-    #     return button_class
-
 
     selected_tags: -> selected_tags.array()
 
@@ -58,25 +49,6 @@ Template.cloud.events
                 if val.length is 0
                     selected_tags.pop()
                     
-    # 'keyup #quick_add': (e,t)->
-    #     e.preventDefault
-    #     switch e.which
-    #         when 13
-    #             input = $('#quick_add').val().toLowerCase()
-    #             if input.length > 0
-    #                 punctuationless = input.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"")
-    #                 finalString = punctuationless.replace(/\s{2,}/g," ")
-    #                 split_tags = finalString.match(/\S+/g)
-    #                 unique = _.uniq split_tags
-    #                 console.log unique
-    #                 Meteor.call 'add', unique
-    #                 $('#quick_add').val('')
-    #                 selected_tags.clear()
-    #                 for tag in unique
-    #                     selected_tags.push tag
-    #         when 8
-    #             if tag.length is 0
-    #                 selected_tags.pop()
 
     'click #logout': -> AccountsTemplates.logout()
                     

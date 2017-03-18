@@ -1,19 +1,20 @@
 template(name='edit')
     with doc
-        .ui.center.aligned.header edit
-        each tags
-            .ui.button.doc_tag
-                i.minus.icon
-                |#{this}
-        .ui.left.icon.four.wide.input
-            i.add.icon
-            input#add_tag(type='text' placeholder='add tag' maxlength='50')
-        .froala-container
-            +froalaReactive getFEContext
-        .ui.basic.center.aligned.segment
-            if tags
-                #save.ui.icon.huge.button
-                    i.check.icon
-            #delete.ui.icon.small.button
-                i.remove.icon
-                    
+        .ui.container
+            .ui.center.aligned.header edit
+            each tags
+                .ui.inverted.grey.button.doc_tag
+                    i.minus.icon
+                    |#{this}
+            .ui.left.icon.four.wide.input
+                i.add.icon
+                input#add_tag(type='text' placeholder='add tag' maxlength='50')
+            .froala-container
+                +froalaReactive getFEContext
+            .ui.basic.center.aligned.segment
+                if tags
+                    #save.ui.icon.huge.inverted.white.button
+                        i.check.icon
+                #delete.ui.icon.small.inverted.white.button
+                    i.remove.icon
+                        

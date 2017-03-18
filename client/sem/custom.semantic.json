@@ -17,7 +17,7 @@
     "feed": false,
     "flag": false,
     "form": true,
-    "grid": false,
+    "grid": true,
     "header": true,
     "icon": true,
     "image": false,
