@@ -9,6 +9,8 @@ template(name='edit')
             .ui.left.icon.four.wide.input
                 i.add.icon
                 input#add_tag(type='text' placeholder='add tag' maxlength='50')
+            .froala-container
+                +froalaReactive getFEContext
             .ui.basic.center.aligned.segment
                 if tags
                     #save.ui.icon.huge.button

@@ -1,22 +1,23 @@
 template(name='docs')
-    // .ui.container
-    //     each docs
-    //         +doc
+    .ui.hidden.divider
+    each docs
+        +doc
 
 template(name='doc')
     .ui.basic.inverted.segment
-        .content
-            // .extra
-            //     div by {{author.username}} #{when}
-            .meta
-                each tags
-                    .ui.button.tag(class=tag_class) #{this}
-            // a.ui.icon.button(href="/view/#{_id}")
-            //     i.angle.right.icon
-            if can_edit
-                .edit.ui.icon.button
-                    i.pencil.icon
-                // .clone.ui.icon.button
-                //     i.fork.icon
-                .delete.ui.icon.button
-                    i.remove.icon
+        |!{body}
+
+        // .extra
+        //     div by {{author.username}} #{when}
+        .meta
+            each tags
+                .ui.inverted.grey.button.tag(class=tag_class) #{this}
+        // a.ui.icon.button(href="/view/#{_id}")
+        //     i.angle.right.icon
+        if is_author
+            .edit.ui.icon.button
+                i.pencil.icon
+            // .clone.ui.icon.button
+            //     i.fork.icon
+            .delete.ui.icon.button
+                i.remove.icon

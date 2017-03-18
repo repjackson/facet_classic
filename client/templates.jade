@@ -6,7 +6,9 @@ head
 
 
 template(name='layout')
-    .ui.container
+    .ui.hidden.divider
+
+    .ui.text.container
         +Template.dynamic template=cloud
         +Template.dynamic template=main
 

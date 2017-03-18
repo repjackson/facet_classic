@@ -30,3 +30,5 @@ accounts-base@1.2.14
 useraccounts:flow-routing
 useraccounts:semantic-ui
 jquery
+underscore
+froala:editor-reactive@=2.4.2
