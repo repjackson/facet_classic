@@ -6,7 +6,7 @@ Template.docs.helpers
         Docs.find { }, 
             sort:
                 tag_count: 1
-            # limit: 1
+            limit: 1
 
     one_doc: ->
         Docs.find().count() is 1
@@ -26,3 +26,9 @@ Template.doc.events
         if confirm 'delete?'
             Docs.remove @_id
             selected_tags.clear()
+
+    'click .clone': ->
+        tags = @tags
+        id = Docs.insert
+            tags: tags
+        FlowRouter.go "/edit/#{id}"

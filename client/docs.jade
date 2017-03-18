@@ -1,12 +1,12 @@
 template(name='docs')
     .ui.container
         +cloud
-        // if one_doc
-        each docs
-            +doc
+        if one_doc
+            each docs
+                +doc
 
 template(name='doc')
-    .ui.basic.inverted.fluid.segment
+    .ui.inverted.fluid.segment
         |!{body}
 
         // .extra
@@ -19,7 +19,7 @@ template(name='doc')
         if is_author
             .edit.ui.icon.inverted.basic.big.button
                 i.pencil.icon
-            // .clone.ui.icon.inverted.basic.big.button
-            //     i.fork.icon
+            .clone.ui.icon.inverted.basic.big.button
+                i.fork.icon
             .delete.ui.icon.inverted.basic.big.button
                 i.remove.icon

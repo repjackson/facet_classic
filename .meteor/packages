@@ -32,3 +32,4 @@ useraccounts:semantic-ui
 jquery
 underscore
 froala:editor-reactive@=2.4.2
+perak:codemirror
