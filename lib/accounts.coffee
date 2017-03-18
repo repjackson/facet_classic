@@ -4,11 +4,11 @@ AccountsTemplates.configure
     # defaultLayoutRegions:
         # nav: ''
     defaultContentRegion: 'main'
-    showForgotPasswordLink: true
+    showForgotPasswordLink: false
     overrideLoginErrors: true
     enablePasswordChange: true
 
-    sendVerificationEmail: true
+    sendVerificationEmail: false
     enforceEmailVerification: false
     confirmPassword: true
     continuousValidation: true
@@ -16,7 +16,7 @@ AccountsTemplates.configure
     #forbidClientAccountCreation: true
     #formValidationFeedback: true
     #homeRoutePath: '/'
-    showAddRemoveServices: true
+    showAddRemoveServices: false
     #showPlaceholders: true
 
     negativeValidation: true
@@ -57,9 +57,7 @@ AccountsTemplates.addFields [
 
 
 AccountsTemplates.configureRoute 'changePwd'
-AccountsTemplates.configureRoute 'forgotPwd'
 AccountsTemplates.configureRoute 'resetPwd'
 AccountsTemplates.configureRoute 'signIn'
 AccountsTemplates.configureRoute 'signUp'
-AccountsTemplates.configureRoute 'verifyEmail'
 
