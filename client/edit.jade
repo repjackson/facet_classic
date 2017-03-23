@@ -3,18 +3,20 @@ template(name='edit')
         .ui.container
             .ui.center.aligned.header edit
             each tags
-                .ui.inverted.basic.button.doc_tag
+                .ui.button.doc_tag
                     i.minus.icon
                     |#{this}
             .ui.left.icon.four.wide.input
                 i.add.icon
                 input#add_tag(type='text' placeholder='add tag' maxlength='50')
-            .froala-container
-                +froalaReactive getFEContext
-            .ui.basic.center.aligned.segment
+            .ui.form
+                .field
+                    textarea#body(rows='5') #{body}
+                
+            .ui.center.aligned.basic.segment
                 if tags
-                    #save.ui.icon.huge.inverted.white.button
+                    #save.ui.icon.huge.white.button
                         i.check.icon
-                #delete.ui.icon.small.inverted.white.button
+                #delete.ui.icon.small.white.button
                     i.remove.icon
                         
