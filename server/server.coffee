@@ -12,9 +12,7 @@ Meteor.publish 'docs', (selected_tags)->
     match = {}
     match.tags = $all: selected_tags
 
-    Docs.find match,
-        limit: 5
-        
+    Docs.find match
 
 Meteor.publish 'doc', (id)->
     Docs.find id

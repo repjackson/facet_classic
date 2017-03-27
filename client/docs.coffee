@@ -7,8 +7,8 @@ Template.docs.helpers
             sort:
                 tag_count: 1
 
-    one_doc: ->
-        Docs.find().count() is 1
+    # one_doc: ->
+    #     Docs.find().count() is 1
 
 
 Template.doc.helpers

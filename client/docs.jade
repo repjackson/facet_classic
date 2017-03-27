@@ -1,9 +1,8 @@
 template(name='docs')
     .ui.text.container
         +cloud
-        if one_doc
-            each docs
-                +doc
+        each docs
+            +doc
 
 template(name='doc')
     .ui.fluid.segment
